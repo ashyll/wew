@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css">
+  <title>Yves Website Temperature Converter</title>
+</head>
+<script>
+    function logout(){
+        let response = confirm("Do you really want to log out?");
+        if (response){
+            window.close();
+            window.open('index.html');
+        }
+    }
+
+    function celsiusToFahrenheit() {
+      const celsiusInput = document.getElementById("celsius");
+      const fahrenheitResult = document.getElementById("fahrenheitResult");
+
+      const celsius = parseFloat(celsiusInput.value);
+      const fahrenheit = (celsius * 9/5) + 32;
+
+      fahrenheitResult.innerText = `${celsius}°C is ${fahrenheit}°F`;
+    }
+
+    function fahrenheitToCelsius() {
+      const fahrenheitInput = document.getElementById("fahrenheit");
+      const celsiusResult = document.getElementById("celsiusResult");
+
+      const fahrenheit = parseFloat(fahrenheitInput.value);
+      const celsius = (fahrenheit - 32) * 5/9;
+
+      celsiusResult.innerText = `${fahrenheit}°F is ${celsius}°C`;
+    }
+  
+    
+</script>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="">
+                   
+        <div class="temperature-converter">
+            <h2>Temperature Converter</h2>
+            <div class="inputbox">
+                <input type="number" id="celsius" placeholder="Enter temperature in Celsius" required>
+            </div>
+            <button type="button" onclick="celsiusToFahrenheit()">Convert to Fahrenheit</button>
+            <div id="fahrenheitResult"></div>
+            <br>
+            <div class="inputbox">
+                <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit" required>
+            </div>
+            <button type="button" onclick="fahrenheitToCelsius()">Convert to Celsius</button>
+            <div id="celsiusResult"></div>
+            <button type="button" onclick="logout()">Logout</button>
+        </div>
+        <!-- End of Temperature Converter Section -->
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
